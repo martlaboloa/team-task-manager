@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { List } from 'material-ui/List'
-import Task from '../Task'
+import Task, { CreateNewTask } from '../Task'
 
 class Section extends Component {
     render() {
@@ -14,6 +14,8 @@ class Section extends Component {
                     <Task />
 
                     <Task />
+
+                    <CreateNewTask />
                 </List>
             </div>
         )

@@ -38,6 +38,7 @@
 .task-container {
     margin: 5px 15px;
     height: 60px;
+    overflow: hidden;
 }
 
 .complete-button {
