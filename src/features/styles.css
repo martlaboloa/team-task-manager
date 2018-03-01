@@ -1,0 +1,49 @@
+.board-wrapper {
+    width: 1000px;
+    height: 900px;
+    margin: auto;
+    margin-top: 20px;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+.board-container {
+    height: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: calc(100% - 20px);
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.section-container {
+    width: 280px;
+    display: inline-block;
+    /*border: 1px solid transparent;*/
+    border: 1px solid black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: calc(100% - 26px);
+    border-radius: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/*.section-container:hover {*/
+    /*background: #f5f5f5;*/
+    /*box-shadow: 0 0 2px silver;*/
+    /*cursor: pointer;*/
+/*}*/
+
+.task-container {
+    margin: 5px 15px;
+    height: 60px;
+
+    display: block;
+}
+
+.dialog-button {
+}
+
+.complete-button {
+}
