@@ -38,12 +38,10 @@
 .task-container {
     margin: 5px 15px;
     height: 60px;
-
-    display: block;
-}
-
-.dialog-button {
 }
 
 .complete-button {
+}
+
+.dialog-button {
 }

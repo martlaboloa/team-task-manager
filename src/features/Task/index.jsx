@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Paper from 'material-ui/Paper'
 import FlatButton from 'material-ui/FlatButton'
+import IconButton from 'material-ui/IconButton'
 import ActionDone from 'material-ui/svg-icons/action/done'
 
 
@@ -54,11 +55,11 @@ class Task extends Component {
     render() {
         return (
             <PaperEnhanced className="task-container">
-                <ActionDone className="complete-button" style={{
-                    margin: 'auto',
-                }}/>
+                <IconButton >
+                    <ActionDone className="complete-button" />
+                </IconButton>
 
-                <FlatButton className="dialog-button" hoverColor="transparent" >
+                <FlatButton className="dialog-button" hoverColor="transparent" rippleColor="transparent">
                     Brendan Lim
                 </FlatButton>
             </PaperEnhanced>
