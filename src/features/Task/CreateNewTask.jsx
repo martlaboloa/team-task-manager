@@ -9,7 +9,7 @@ class CreateNewTask extends Component {
                 <TextField
                     hintText="Hint Text"
                     style={{
-                        width: '50px',
+                        width: '150px',
                     }}
                 />
             </PaperEnhanced>
