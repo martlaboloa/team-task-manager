@@ -7,6 +7,14 @@ const btnStyles = {
     width: '100%',
 }
 
+const childrenContStyles = {
+    display: 'flex',
+    position: 'absolute',
+    color: '#ababab',
+    bottom: '94%',
+    left: '3%',
+}
+
 class CreateNewSection extends Component {
     render() {
         return (
@@ -17,13 +25,7 @@ class CreateNewSection extends Component {
                         console.log('aaa')
                     }}
                 >
-                    <div style={{
-                        display: 'flex',
-                        position: 'absolute',
-                        color: '#ababab',
-                        bottom: '94%',
-                        left: '3%',
-                    }}>
+                    <div style={childrenContStyles}>
                         <ContentAdd color="#747474" style={{ margin: '5px' }} />New Section
                     </div>
                 </FlatButton>
