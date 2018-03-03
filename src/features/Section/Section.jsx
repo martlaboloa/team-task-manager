@@ -18,26 +18,6 @@ class Section extends Component {
                     <Task />
 
                     <Task />
-                    <Task />
-                    <Task />
-                    <Task />
-                    <Task />
-                    <Task />
-                    <Task />
-                    <Task />
-                    <Task />
-                    <Task />
-                    <Task />
-                    <Task />
-                    <Task />
-                    <Task />
-                    <Task />
-                    <Task />
-                    <Task />
-                    <Task />
-                    <Task />
-                    <Task />
-                    <Task />
 
                     <CreateNewTask />
                 </List>

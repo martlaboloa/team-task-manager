@@ -35,9 +35,9 @@
     }
 
     .section-list {
-        height: 100% ;
-        overflow: auto;
+        height: calc(100% - 78px);
         paddingTop: 0px;
+        overflow: auto;
     }
 }
 

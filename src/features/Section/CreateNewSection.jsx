@@ -20,9 +20,8 @@ class CreateNewSection extends Component {
                     <div style={{
                         display: 'flex',
                         position: 'absolute',
-                        bottom: '0px',
                         color: '#ababab',
-                        bottom: '93%',
+                        bottom: '94%',
                         left: '3%',
                     }}>
                         <ContentAdd color="#747474" style={{ margin: '5px' }} />New Section
