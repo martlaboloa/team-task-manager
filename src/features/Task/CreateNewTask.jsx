@@ -7,10 +7,10 @@ class CreateNewTask extends Component {
         return (
             <PaperEnhanced className="task-container">
                 <TextField
-                    hintText="Hint Text"
-                    style={{
-                        width: '150px',
-                    }}
+                    hintText="Task name"
+                    style={{ width: '100%' }}
+                    underlineStyle={{ borderColor: 'transparent' }}
+                    underlineFocusStyle={{ borderColor: 'transparent' }}
                 />
             </PaperEnhanced>
         )

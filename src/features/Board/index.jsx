@@ -10,8 +10,6 @@ class Board extends Component {
 
                 <Section />
 
-                <Section />
-
                 <CreateNewSection />
             </div>
         )
