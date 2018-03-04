@@ -1,3 +1,4 @@
+/* not part of project, only needed in development mode, hence shitty code */
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import actions from '../store/actions'
