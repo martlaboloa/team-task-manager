@@ -1,5 +1,7 @@
 import actions from '../actionTypes'
-import { unsafeGUID, removeAtIndex } from '../../../helpers'
+import findIndex from 'lodash/findIndex'
+import reduce from 'lodash/reduce'
+import { unsafeGUID, removeAtIndex, moveAtIndexArr } from '../../../helpers'
 import sectionReducer from './section'
 
 const initial = {
@@ -81,12 +83,26 @@ export default function(state = initial, action) {
             }
         }
         case actions.board.MOVE_SECTION: {
-            const { sections } = state
+            const { sections, sectionOrder } = state
             const { id, newIndex } = payload
 
-            const section = sections[id]
+            const { index } = sections[id]
 
-            return state
+            const updatedSectionOrder = moveAtIndexArr(sectionOrder, index, newIndex)
+
+            return {
+                sections: newIndex !== index ? reduce(sections, (result, value, key) => {
+                    return {
+                        ...result,
+                        [key]: {
+                            ...value,
+                            index: findIndex(updatedSectionOrder, secId => secId === key),
+                        }
+                    }
+                }, {}) : sections,
+
+                sectionOrder: updatedSectionOrder
+            }
         }
         case actions.section.ADD_TASK:
         case actions.section.DELETE_TASK: {

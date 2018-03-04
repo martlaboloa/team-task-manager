@@ -8,6 +8,8 @@ export default {
 
     renameSection: (id, name) => createAction(actions.board.RENAME_SECTION, { id, name }),
 
+    moveSection: (id, newIndex) => createAction(actions.board.MOVE_SECTION, { id, newIndex }),
+
 
     addTask: (name, sectionId) => createAction(actions.section.ADD_TASK, { name }, { sectionId }),
 
