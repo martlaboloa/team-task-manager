@@ -1,6 +1,6 @@
-import actions from './actionTypes'
-import { unsafeGUID, removeAtIndex } from '../../helpers'
-import section from './section'
+import actions from '../actionTypes'
+import { unsafeGUID, removeAtIndex } from '../../../helpers'
+import sectionReducer from './section'
 
 const initial = {
     sections: {},
@@ -25,6 +25,7 @@ export default function(state = initial, action) {
                         id: newId,
                         index: newIndex,
                         name,
+                        data: sectionReducer(undefined, action),
                     },
                 },
                 sectionOrder: [...sectionOrder, newId],
@@ -43,6 +44,33 @@ export default function(state = initial, action) {
                 },
                 sectionOrder: removeAtIndex(sectionOrder, index),
             }
+        }
+        case actions.section.ADD_TASK:
+        case actions.section.DELETE_TASK:
+        case action.section.RENAME: {
+            const { meta: { sectionId } } = action
+            const { sections } = state
+
+            const section = sections[sectionId]
+
+            const { data } = section
+
+            return {
+                ...state,
+                sections: {
+                    ...sections,
+                    [sectionId]: {
+                        ...section,
+                        data: sectionReducer(data, action),
+                    },
+                },
+            }
+        }
+        case actions.section.DELETE_TASK: {
+            return null
+        }
+        case actions.section.RENAME: {
+            return null
         }
         default:
             return state

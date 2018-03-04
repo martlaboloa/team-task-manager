@@ -5,8 +5,8 @@ export default {
     },
 
     section: {
-        RENAME: 'TeamTaskManager/section/RENAME',
         ADD_TASK: 'TeamTaskManager/section/ADD_TASK',
         DELETE_TASK: 'TeamTaskManager/section/DELETE_TASK',
+        RENAME: 'TeamTaskManager/section/RENAME',
     },
 }
