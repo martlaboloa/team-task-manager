@@ -86,16 +86,7 @@ export default function(state = initial, action) {
 
             const section = sections[id]
 
-            return {
-                ...state,
-                sections: {
-                    ...sections,
-                    [id]: {
-                        ...section,
-                        name,
-                    },
-                },
-            }
+            return state
         }
         case actions.section.ADD_TASK:
         case actions.section.DELETE_TASK: {
