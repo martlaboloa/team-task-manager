@@ -9,16 +9,18 @@ export const getSectionOrder = state => getBoard(state).sectionOrder
 
 export const getSection = (state, id) => getSections(state)[id]
 
-export const getTasks = (state, sectionId) => getSection(state, sectionId).tasks
-
-export const getTaskOrder = (state, sectionId) => getSection(state, sectionId).taskOrder
+export const getSectionData = (state, id) => getSection(state, id).data
 
 export const getSectionIndex = (state, id) => getSection(state, id).index
 
 export const getSectionName = (state, id) => getSection(state, id).name
 
+export const getTasks = (state, sectionId) => getSectionData(state, sectionId).tasks
 
-export const getTask = (state, id, sectionId) => getSection(state, sectionId)[id]
+export const getTaskOrder = (state, sectionId) => getSectionData(state, sectionId).taskOrder
+
+
+export const getTask = (state, id, sectionId) => getTasks(state, sectionId)[id]
 
 export const getTaskIndex = (state, id, sectionId) => getTask(state, id, sectionId).index
 

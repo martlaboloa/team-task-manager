@@ -21,8 +21,6 @@ class CreateNewSection extends Component {
     onClick = () => {
         const { addSection } = this.props
 
-        console.log('add section on click')
-
         addSection('Section Name')
     }
 
