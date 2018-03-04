@@ -8,6 +8,7 @@ import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import MoreHorizIcon from 'material-ui/svg-icons/navigation/more-horiz';
 import ActionDelete from 'material-ui/svg-icons/action/delete';
+import { getSectionName } from '../store/selectors'
 import actions from '../store/actions'
 
 
@@ -19,6 +20,8 @@ class SectionHeader extends Component {
     }
 
     render() {
+        const { sectionName } = this.props
+
         return (
             <div className="section-header">
                 <IconButton >
@@ -26,7 +29,7 @@ class SectionHeader extends Component {
                 </IconButton>
 
                 <TextField
-                    hintText="Section name"
+                    hintText={sectionName}
                     underlineStyle={{ borderColor: 'transparent' }}
                     underlineFocusStyle={{ borderColor: 'transparent' }}
                 />
@@ -48,6 +51,9 @@ class SectionHeader extends Component {
     }
 }
 
-export default connect(undefined, (dispatch, { sectionId }) => bindActionCreators({
-    deleteSection: () => actions.deleteSection(sectionId),
-}, dispatch))(SectionHeader)
+export default connect(
+    (state, { sectionId }) => ({ sectionName: getSectionName(state, sectionId) }),
+    (dispatch, { sectionId }) => bindActionCreators({
+        deleteSection: () => actions.deleteSection(sectionId),
+    }, dispatch)
+)(SectionHeader)

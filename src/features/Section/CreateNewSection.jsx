@@ -6,6 +6,7 @@ import TextField from 'material-ui/TextField'
 import IconButton from 'material-ui/IconButton'
 import ImageLens from 'material-ui/svg-icons/image/lens'
 import actions from '../store/actions'
+import { getRandomColor } from '../../helpers'
 
 const btnStyles = {
     height: 'calc(100% - 4px)',
@@ -18,6 +19,25 @@ const childrenContStyles = {
     color: '#ababab',
     bottom: '94%',
     left: '3%',
+}
+
+class CreatingSection extends Component {
+    render() {
+        return (
+            <div key="creatingSection" className="section-container">
+                <IconButton >
+                    <ImageLens color={getRandomColor()} viewBox="0 0 50 20" />
+                </IconButton>
+
+                <TextField
+                    hintText="Section name"
+                    autoFocus
+                    onKeyDown={this.onKeyDownCreatingField}
+                    onBlur={this.onBlurCreatingField}
+                />
+            </div>
+        )
+    }
 }
 
 class CreateNewSection extends Component {
@@ -57,7 +77,7 @@ class CreateNewSection extends Component {
             this.state.creatingSection ?
                 <div key="creatingSection" className="section-container">
                     <IconButton >
-                        <ImageLens color={'#ff0000'} viewBox="0 0 50 20" />
+                        <ImageLens color={getRandomColor()} viewBox="0 0 50 20" />
                     </IconButton>
 
                     <TextField
