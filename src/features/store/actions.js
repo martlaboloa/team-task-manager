@@ -2,7 +2,7 @@ import createAction from '../../reducer/actionHelpers'
 import actions from './actionTypes'
 
 export default {
-    addSection: name => createAction(actions.board.ADD_SECTION, { name }),
+    addSection: (name, iconColor) => createAction(actions.board.ADD_SECTION, { name, iconColor }),
 
     deleteSection: id => createAction(actions.board.DELETE_SECTION, { id }),
 

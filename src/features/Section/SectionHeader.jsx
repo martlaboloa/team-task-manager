@@ -8,7 +8,7 @@ import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import MoreHorizIcon from 'material-ui/svg-icons/navigation/more-horiz';
 import ActionDelete from 'material-ui/svg-icons/action/delete';
-import { getSectionName } from '../store/selectors'
+import { getSectionName, getSectionIconColor } from '../store/selectors'
 import actions from '../store/actions'
 
 
@@ -20,12 +20,12 @@ class SectionHeader extends Component {
     }
 
     render() {
-        const { sectionName } = this.props
+        const { sectionName, sectionIconColor } = this.props
 
         return (
             <div className="section-header">
                 <IconButton >
-                    <ImageLens color={'#ff0000'} viewBox="0 0 50 20" />
+                    <ImageLens color={sectionIconColor} viewBox="0 0 50 20" />
                 </IconButton>
 
                 <TextField
@@ -52,7 +52,10 @@ class SectionHeader extends Component {
 }
 
 export default connect(
-    (state, { sectionId }) => ({ sectionName: getSectionName(state, sectionId) }),
+    (state, { sectionId }) => ({
+        sectionName: getSectionName(state, sectionId),
+        sectionIconColor: getSectionIconColor(state, sectionId)
+    }),
     (dispatch, { sectionId }) => bindActionCreators({
         deleteSection: () => actions.deleteSection(sectionId),
     }, dispatch)

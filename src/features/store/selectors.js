@@ -15,6 +15,8 @@ export const getSectionIndex = (state, id) => getSection(state, id).index
 
 export const getSectionName = (state, id) => getSection(state, id).name
 
+export const getSectionIconColor = (state, id) => getSection(state, id).iconColor
+
 export const getTasks = (state, sectionId) => getSectionData(state, sectionId).tasks
 
 export const getTaskOrder = (state, sectionId) => getSectionData(state, sectionId).taskOrder

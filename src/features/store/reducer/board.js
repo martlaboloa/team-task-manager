@@ -15,7 +15,7 @@ export default function(state = initial, action) {
     switch (type) {
         case actions.board.ADD_SECTION: {
             const { sections, sectionOrder } = state
-            const { name } = payload
+            const { name, iconColor } = payload
 
             const newId = unsafeGUID()
             const newIndex = sectionOrder.length
@@ -27,6 +27,7 @@ export default function(state = initial, action) {
                         id: newId,
                         index: newIndex,
                         name,
+                        iconColor,
                         data: sectionReducer(undefined, action),
                     },
                 },

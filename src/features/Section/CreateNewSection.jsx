@@ -21,30 +21,11 @@ const childrenContStyles = {
     left: '3%',
 }
 
-class CreatingSection extends Component {
-    render() {
-        return (
-            <div key="creatingSection" className="section-container">
-                <IconButton >
-                    <ImageLens color={getRandomColor()} viewBox="0 0 50 20" />
-                </IconButton>
-
-                <TextField
-                    hintText="Section name"
-                    autoFocus
-                    onKeyDown={this.onKeyDownCreatingField}
-                    onBlur={this.onBlurCreatingField}
-                />
-            </div>
-        )
-    }
-}
-
 class CreateNewSection extends Component {
-    state = { creatingSection: false }
+    state = { creatingSection: false, sectionIconColor: null }
 
     onClickCreateBtn = () => {
-        this.setState({ creatingSection: true })
+        this.setState({ creatingSection: true, sectionIconColor: getRandomColor() })
     }
 
     onKeyDownCreatingField = (e) => {
@@ -53,9 +34,9 @@ class CreateNewSection extends Component {
         if (keyCode === 13 && value !== null && value !== undefined && value !== '') {
             const { addSection } = this.props
 
-            addSection(value)
+            addSection(value, this.state.sectionIconColor)
 
-            this.setState({ creatingSection: false })
+            this.setState({ creatingSection: false, sectionIconColor: null })
         }
     }
 
@@ -65,11 +46,11 @@ class CreateNewSection extends Component {
         if (value !== null && value !== undefined && value !== '') {
             const { addSection } = this.props
 
-            addSection(value)
+            addSection(value, this.state.sectionIconColor)
 
         }
 
-        this.setState({ creatingSection: false })
+        this.setState({ creatingSection: false, sectionIconColor: null })
     }
 
     render() {
@@ -77,7 +58,7 @@ class CreateNewSection extends Component {
             this.state.creatingSection ?
                 <div key="creatingSection" className="section-container">
                     <IconButton >
-                        <ImageLens color={getRandomColor()} viewBox="0 0 50 20" />
+                        <ImageLens color={this.state.sectionIconColor} viewBox="0 0 50 20" />
                     </IconButton>
 
                     <TextField
