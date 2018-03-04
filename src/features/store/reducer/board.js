@@ -7,6 +7,8 @@ const initial = {
     sectionOrder: [],
 }
 
+export const REDUCER_NAME = 'board'
+
 export default function(state = initial, action) {
     const { type, payload }  = actions
 
@@ -45,9 +47,25 @@ export default function(state = initial, action) {
                 sectionOrder: removeAtIndex(sectionOrder, index),
             }
         }
+        case actions.board.RENAME_SECTION: {
+            const { sections } = state
+            const { id, name } = payload
+
+            const section = sections[id]
+
+            return {
+                ...state,
+                sections: {
+                    ...sections,
+                    [id]: {
+                        ...section,
+                        name,
+                    },
+                },
+            }
+        }
         case actions.section.ADD_TASK:
-        case actions.section.DELETE_TASK:
-        case action.section.RENAME: {
+        case actions.section.DELETE_TASK: {
             const { meta: { sectionId } } = action
             const { sections } = state
 
@@ -65,12 +83,6 @@ export default function(state = initial, action) {
                     },
                 },
             }
-        }
-        case actions.section.DELETE_TASK: {
-            return null
-        }
-        case actions.section.RENAME: {
-            return null
         }
         default:
             return state

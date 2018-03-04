@@ -1,5 +1,5 @@
-import actions from './actionTypes'
-import { unsafeGUID, removeAtIndex } from '../../helpers'
+import actions from '../actionTypes'
+import { unsafeGUID, removeAtIndex } from '../../../helpers'
 
 const initial = {
     tasks: {},
@@ -10,38 +10,37 @@ export default function(state = initial, action) {
     const { type, payload }  = actions
 
     switch (type) {
-        case actions.board.ADD_SECTION: {
-            const { sections, sectionOrder } = state
+        case actions.section.ADD_TASK:{
+            const { tasks, taskOrder } = state
             const { name } = payload
 
             const newId = unsafeGUID()
-            const newIndex = sectionOrder.length
+            const newIndex = taskOrder.length
 
             return {
-                sections: {
-                    ...sections,
+                tasks: {
+                    ...tasks,
                     [newId]: {
                         id: newId,
                         index: newIndex,
                         name,
-                        data: section(undefined, action),
                     },
                 },
-                sectionOrder: [...sectionOrder, newId],
+                taskOrder: [...taskOrder, newId],
             }
         }
-        case actions.board.DELETE_SECTION: {
-            const { sections, sectionOrder } = state
+        case actions.section.DELETE_TASK: {
+            const { tasks, taskOrder } = state
             const { id } = payload
 
-            const { index } = sections[id]
+            const { index } = tasks[id]
 
             return {
-                sections: {
-                    ...sections,
+                tasks: {
+                    ...tasks,
                     [id]: undefined,
                 },
-                sectionOrder: removeAtIndex(sectionOrder, index),
+                taskOrder: removeAtIndex(taskOrder, index),
             }
         }
         default:
