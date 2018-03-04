@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getSectionOrder } from '../store/selectors'
 import Section, { CreateNewSection } from '../Section'
-import DragAndDropProgrammatically from './DragAndDropProgrammatically'
+import MoveProgrammatically from './MoveProgrammatically'
 
 
 const Sections = ({ sectionOrder }) => sectionOrder.map(id => <Section key={id} id={id} />)
@@ -13,7 +13,7 @@ class Board extends Component {
 
         return (
             <div className="board-container" >
-                <DragAndDropProgrammatically />
+                <MoveProgrammatically />
 
                 <Sections sectionOrder={sectionOrder} />
 

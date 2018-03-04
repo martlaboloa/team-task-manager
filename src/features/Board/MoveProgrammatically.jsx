@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 
-class DragAndDropProgrammatically extends Component {
+class MoveProgrammatically extends Component {
     state = { sectionId: '', sectionNewIndex: -1 }
 
     render() {
@@ -9,12 +9,12 @@ class DragAndDropProgrammatically extends Component {
             <form
                 style={{
                     position: 'absolute',
+                    zIndex: 99,
                     width: '200px',
                     height: '300px',
                     backgroundColor: 'skyblue',
                     border: '1px black solid',
                     left: '20px',
-                    wordBreak: 'break-all',
                 }}
 
                 onSubmit={(e) => {
@@ -25,7 +25,8 @@ class DragAndDropProgrammatically extends Component {
                     console.log('DnD Prog, onSubmit: ', sectionId, sectionNewIndex)
                 }}
             >
-                <div>Drag and Drop</div>
+                <div>test move without dnd
+                </div>
                 section Id:
                     <input
                         aria-label="awd"
@@ -48,4 +49,4 @@ class DragAndDropProgrammatically extends Component {
     }
 }
 
-export default DragAndDropProgrammatically
+export default MoveProgrammatically
