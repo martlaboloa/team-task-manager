@@ -37,16 +37,28 @@ export default function(state = initial, action) {
             const { sections, sectionOrder } = state
             const { id } = payload
 
-            console.log('iiiiiiiiii', sections, sectionOrder, id)
-
             const { index } = sections[id]
 
+            const sectionsAfterIndex = sectionOrder.slice(index + 1)
 
             return {
                 sections: {
                     ...sections,
                     [id]: undefined,
+                    ...sectionsAfterIndex.reduce((acc, curr) => {
+                        const currSec = sections[curr]
+
+                        return {
+                            ...acc,
+                            [curr]: {
+                                ...currSec,
+
+                                index: currSec.index - 1,
+                            }
+                        }
+                    }, {})
                 },
+
                 sectionOrder: removeAtIndex(sectionOrder, index),
             }
         }
