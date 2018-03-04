@@ -80,6 +80,23 @@ export default function(state = initial, action) {
                 },
             }
         }
+        case actions.board.MOVE_SECTION: {
+            const { sections } = state
+            const { id, newIndex } = payload
+
+            const section = sections[id]
+
+            return {
+                ...state,
+                sections: {
+                    ...sections,
+                    [id]: {
+                        ...section,
+                        name,
+                    },
+                },
+            }
+        }
         case actions.section.ADD_TASK:
         case actions.section.DELETE_TASK: {
             const { meta: { sectionId } } = action
