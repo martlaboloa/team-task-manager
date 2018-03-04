@@ -6,17 +6,22 @@ import TextField from 'material-ui/TextField'
 import actions from '../store/actions'
 
 class CreateNewTask extends Component {
+    state = { inputValue: '' }
+
     onKeyDown = (e) => {
         const { keyCode, target: { value } } = e
 
         if (keyCode === 13 && value !== null && value !== undefined && value !== '') {
             const { addTask } = this.props
-            const { target } = e
 
             addTask(value)
 
-            target.value = ''
+            this.setState({ inputValue: '' })
         }
+    }
+
+    onChange = (e, value) => {
+        this.setState({ inputValue: value })
     }
 
     render() {
@@ -27,7 +32,9 @@ class CreateNewTask extends Component {
                     style={{ width: '100%' }}
                     underlineStyle={{ borderColor: 'transparent' }}
                     underlineFocusStyle={{ borderColor: 'transparent' }}
+                    onChange={this.onChange}
                     onKeyDown={this.onKeyDown}
+                    value={this.state.inputValue}
                 />
             </PaperEnhanced>
         )
