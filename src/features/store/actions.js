@@ -14,5 +14,7 @@ export default {
     addTask: (name, sectionId) => createAction(actions.section.ADD_TASK, { name }, { sectionId }),
 
     deleteTask: (id, sectionId) => createAction(actions.section.DELETE_TASK, { id }, { sectionId }),
+
+    moveTask: (id, newIndex, sectionId) => createAction(actions.section.MOVE_TASK, { id, newIndex }, { sectionId }),
 }
 

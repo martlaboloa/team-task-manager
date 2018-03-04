@@ -9,5 +9,6 @@ export default {
     section: {
         ADD_TASK: 'TeamTaskManager/section/ADD_TASK',
         DELETE_TASK: 'TeamTaskManager/section/DELETE_TASK',
+        MOVE_TASK: 'TeamTaskManager/section/MOVE_TASK',
     },
 }

@@ -105,7 +105,8 @@ export default function(state = initial, action) {
             }
         }
         case actions.section.ADD_TASK:
-        case actions.section.DELETE_TASK: {
+        case actions.section.DELETE_TASK:
+        case actions.section.MOVE_TASK: {
             const { meta: { sectionId } } = action
             const { sections } = state
 
