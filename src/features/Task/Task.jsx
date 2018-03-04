@@ -13,10 +13,10 @@ class Task extends Component {
         return (
             <PaperEnhanced className="task-container">
                 <IconButton >
-                    <ActionDone className="complete-button" />
+                    <ActionDone />
                 </IconButton>
 
-                <FlatButton className="dialog-button" hoverColor="transparent" rippleColor="transparent">
+                <FlatButton hoverColor="transparent" rippleColor="transparent">
                     {name}
                 </FlatButton>
             </PaperEnhanced>
