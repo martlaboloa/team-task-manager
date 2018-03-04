@@ -23,10 +23,15 @@ function sourceCollect(connect, monitor) {
 }
 
 const sectionTarget = {
-    drop(props, monitor) {
-        const { moveSection, index } = props
+    hover(props, monitor) {
+        const { moveSection, id, index } = props
 
-        moveSection(monitor.getItem().id, index)
+
+        const item = monitor.getItem()
+
+        if (id !== item.id) {
+            moveSection(item.id, index)
+        }
     }
 }
 
@@ -48,7 +53,7 @@ class Section extends Component {
                 connectDropTarget(
                     <div
                         className="section-container"
-                        style={{ opacity: isDragging ? 0.5 : 1 }}
+                        style={{ opacity: isDragging ? 0 : 1 }}
                     >
                         <SectionHeader sectionId={id} />
 
