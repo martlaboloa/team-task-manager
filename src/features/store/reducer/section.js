@@ -35,10 +35,24 @@ export default function(state = initial, action) {
 
             const { index } = tasks[id]
 
+            const tasksAfterIndex = taskOrder.slice(index + 1)
+
             return {
                 tasks: {
                     ...tasks,
                     [id]: undefined,
+                    ...tasksAfterIndex.reduce((acc, curr) => {
+                        const currTask = tasks[curr]
+
+                        return {
+                            ...acc,
+                            [curr]: {
+                                ...currTask,
+
+                                index: currTask.index - 1,
+                            }
+                        }
+                    }, {})
                 },
                 taskOrder: removeAtIndex(taskOrder, index),
             }
