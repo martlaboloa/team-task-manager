@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import FlatButton from 'material-ui/FlatButton'
 import ContentAdd from 'material-ui/svg-icons/content/add';
+import actions from '../store/actions'
 
 const btnStyles = {
     height: 'calc(100% - 4px)',
@@ -16,14 +18,20 @@ const childrenContStyles = {
 }
 
 class CreateNewSection extends Component {
+    onClick = () => {
+        const { addSection } = this.props
+
+        console.log('add section on click')
+
+        addSection('Section Name')
+    }
+
     render() {
         return (
             <div className="create-new-section-btn" >
                 <FlatButton
                     style={btnStyles}
-                    onClick={() => {
-                        console.log('aaa')
-                    }}
+                    onClick={this.onClick}
                 >
                     <div style={childrenContStyles}>
                         <ContentAdd color="#747474" style={{ margin: '5px' }} />New Section
@@ -34,4 +42,4 @@ class CreateNewSection extends Component {
     }
 }
 
-export default CreateNewSection
+export default connect(undefined, { addSection: actions.addSection })(CreateNewSection)

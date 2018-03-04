@@ -7,7 +7,7 @@ const initial = {
 }
 
 export default function(state = initial, action) {
-    const { type, payload }  = actions
+    const { type, payload }  = action
 
     switch (type) {
         case actions.section.ADD_TASK:{

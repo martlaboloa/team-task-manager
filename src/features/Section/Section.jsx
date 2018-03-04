@@ -5,9 +5,11 @@ import SectionHeader from './SectionHeader'
 
 class Section extends Component {
     render() {
+        const { id } = this.props
+
         return (
             <div className="section-container">
-                <SectionHeader />
+                <SectionHeader sectionId={id} />
 
                 <List className="section-list">
 

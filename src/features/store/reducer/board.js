@@ -10,7 +10,7 @@ const initial = {
 export const REDUCER_NAME = 'board'
 
 export default function(state = initial, action) {
-    const { type, payload }  = actions
+    const { type, payload }  = action
 
     switch (type) {
         case actions.board.ADD_SECTION: {
@@ -37,7 +37,10 @@ export default function(state = initial, action) {
             const { sections, sectionOrder } = state
             const { id } = payload
 
+            console.log('iiiiiiiiii', sections, sectionOrder, id)
+
             const { index } = sections[id]
+
 
             return {
                 sections: {
