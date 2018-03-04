@@ -12,15 +12,11 @@ export const moveAtIndexArr = (arr, index, newIndex) => {
         return arr
     }
 
-    console.log('aaaaaaaaaaa', arr)
-
     const arrCopy = [...arr]
 
     arrCopy.splice(index , 1)
 
     arrCopy.splice(newIndex , 0, arr[index])
-
-    console.log('ooooooooooooo', arr, index, arr[index])
 
     return arrCopy
 }

@@ -1,31 +1,78 @@
 import React, { Component } from 'react'
+import flowRight from 'lodash/flowRight'
 import { connect } from 'react-redux'
+import { DragSource, DropTarget } from 'react-dnd'
+import actions from '../store/actions'
 import { List } from 'material-ui/List'
 import Task, { CreateNewTask } from '../Task'
 import SectionHeader from './SectionHeader'
-import { getTaskOrder } from '../store/selectors'
+import { getTaskOrder, getSectionIndex } from '../store/selectors'
+import { DnDItemTypes } from '../constants'
+
+const sectionSource = {
+    beginDrag(props) {
+        return { id: props.id }
+    }
+}
+
+function sourceCollect(connect, monitor) {
+    return {
+        connectDragSource: connect.dragSource(),
+        isDragging: monitor.isDragging()
+    }
+}
+
+const sectionTarget = {
+    drop(props, monitor) {
+        const { moveSection, index } = props
+
+        moveSection(monitor.getItem().id, index)
+    }
+}
+
+function collectTarget(connect, monitor) {
+    return {
+        connectDropTarget: connect.dropTarget(),
+        isOver: monitor.isOver()
+    }
+}
 
 const Tasks = ({ taskOrder, sectionId }) => taskOrder.map(id => <Task key={id} id={id} sectionId={sectionId} />)
 
 class Section extends Component {
     render() {
-        const { id, taskOrder } = this.props
+        const { id, taskOrder, connectDragSource, isDragging, connectDropTarget } = this.props
 
         return (
-            <div className="section-container">
-                <SectionHeader sectionId={id} />
+            connectDragSource(
+                connectDropTarget(
+                    <div
+                        className="section-container"
+                        style={{ opacity: isDragging ? 0.5 : 1 }}
+                    >
+                        <SectionHeader sectionId={id} />
 
-                <List className="section-list">
+                        <List className="section-list">
 
-                    <Tasks taskOrder={taskOrder} sectionId={id}/>
+                            <Tasks taskOrder={taskOrder} sectionId={id}/>
 
-                    <CreateNewTask sectionId={id} />
-                </List>
-            </div>
+                            <CreateNewTask sectionId={id} />
+                        </List>
+                    </div>
+                )
+            )
         )
     }
 }
 
-export default connect((state, { id }) => ({
-    taskOrder: getTaskOrder(state, id),
-}))(Section)
+export default flowRight(
+    connect(
+        (state, { id }) => ({
+            taskOrder: getTaskOrder(state, id),
+            index: getSectionIndex(state, id),
+        }),
+        { moveSection: actions.moveSection }
+    ),
+    DragSource(DnDItemTypes.SECTION, sectionSource, sourceCollect),
+    DropTarget(DnDItemTypes.SECTION, sectionTarget, collectTarget)
+)(Section)
