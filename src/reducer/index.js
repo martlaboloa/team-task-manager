@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux'
+import { reducer as boardReducer } from '../features/Board'
 
 const mainReducer = combineReducers({
-    foo: () => 'bar',
+    board: boardReducer,
 })
 
 export default mainReducer
