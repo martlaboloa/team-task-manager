@@ -1,3 +1,4 @@
 export const DnDItemTypes = {
-    SECTION: 'section'
+    SECTION: 'section',
+    TASK: 'task',
 };

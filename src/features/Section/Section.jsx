@@ -35,7 +35,7 @@ const sectionTarget = {
     }
 }
 
-function collectTarget(connect, monitor) {
+function targetCollect(connect, monitor) {
     return {
         connectDropTarget: connect.dropTarget(),
         isOver: monitor.isOver()
@@ -79,5 +79,5 @@ export default flowRight(
         { moveSection: actions.moveSection }
     ),
     DragSource(DnDItemTypes.SECTION, sectionSource, sourceCollect),
-    DropTarget(DnDItemTypes.SECTION, sectionTarget, collectTarget)
+    DropTarget(DnDItemTypes.SECTION, sectionTarget, targetCollect)
 )(Section)

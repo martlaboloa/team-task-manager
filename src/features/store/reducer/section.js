@@ -84,9 +84,10 @@ export default function(state = initial, action, taskToMv) {
             }
 
 
-
             const updatedTaskOrder = [...taskOrder]
             updatedTaskOrder.splice(newIndex, 0, id)
+
+            console.log('iiiiiiiiiii', taskToMv)
 
             return {
                 tasks: reduce(tasks, (result, value, key) => {
