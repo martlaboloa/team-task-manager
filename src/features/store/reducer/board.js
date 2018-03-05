@@ -1,8 +1,10 @@
 import actions from '../actionTypes'
+import find from 'lodash/find'
 import findIndex from 'lodash/findIndex'
 import reduce from 'lodash/reduce'
 import { unsafeGUID, removeAtIndex, moveAtIndexArr } from '../../../helpers'
 import sectionReducer from './section'
+import createAction from "../../../reducer/actionHelpers";
 
 const initial = {
     sections: {},
@@ -105,8 +107,7 @@ export default function(state = initial, action) {
             }
         }
         case actions.section.ADD_TASK:
-        case actions.section.DELETE_TASK:
-        case actions.section.MOVE_TASK: {
+        case actions.section.DELETE_TASK: {
             const { meta: { sectionId } } = action
             const { sections } = state
 
@@ -120,7 +121,63 @@ export default function(state = initial, action) {
                     ...sections,
                     [sectionId]: {
                         ...section,
-                        data: sectionReducer(data, action, sectionId), // hack needs to be changed
+                        data: sectionReducer(data, action),
+                    },
+                },
+            }
+        }
+        case actions.section.MOVE_TASK: { // hack, needs to be changed
+            const { payload: { id, newSectionId } } = action
+            const { sections } = state
+
+            const fromSectionId = find(
+                sections, sect => (find(sect.data.tasks, tsk => tsk.id === id) !== undefined)
+            ).id
+
+            const fromEqualsTo = fromSectionId === newSectionId
+
+            if (fromEqualsTo) {
+                const section = sections[fromSectionId]
+
+                return {
+                    ...state,
+                    sections: {
+                        ...sections,
+
+                        [fromSectionId]: {
+                            ...section,
+                            data: sectionReducer(
+                                section.data,
+                                action,
+                            ),
+                        },
+                    },
+                }
+            }
+
+            const fromSec = sections[fromSectionId]
+            const toSec = sections[newSectionId]
+
+            return {
+                ...state,
+                sections: {
+                    ...sections,
+
+                    [fromSectionId]: {
+                        ...fromSec,
+                        data: sectionReducer(
+                            fromSec.data,
+                            createAction(actions.section.DELETE_TASK, { id }, { sectionId: fromSectionId }),
+                        ),
+                    },
+
+                    [newSectionId]: {
+                        ...toSec,
+                        data: sectionReducer(
+                            toSec.data,
+                            action,
+                            fromSec.data.tasks[id],
+                        ),
                     },
                 },
             }

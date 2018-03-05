@@ -1,5 +1,5 @@
 import actions from '../actionTypes'
-import {unsafeGUID, removeAtIndex, moveAtIndexArr} from '../../../helpers'
+import {unsafeGUID, removeAtIndex, moveAtIndexArr } from '../../../helpers'
 import reduce from "lodash/reduce";
 import findIndex from "lodash/findIndex";
 
@@ -8,8 +8,8 @@ const initial = {
     taskOrder: [],
 }
 
-export default function(state = initial, action, sectId) {
-    const { type, payload, meta }  = action
+export default function(state = initial, action, taskToMv) {
+    const { type, payload }  = action
 
     switch (type) {
         case actions.section.ADD_TASK:{
@@ -62,37 +62,34 @@ export default function(state = initial, action, sectId) {
         case actions.section.MOVE_TASK: {
             const { tasks, taskOrder } = state
             const { id, newIndex } = payload
-            const { sectionId } = meta
-            const { index } = tasks[id]
 
-            if (sectionId !== sectId) {
-                const tasksAfterIndex = taskOrder.slice(index + 1)
+            if (!taskToMv) {
+                const { index } = tasks[id]
+
+                const updatedTaskOrder = moveAtIndexArr(taskOrder, index, newIndex)
 
                 return {
-                    tasks: {
-                        ...tasks,
-                        [id]: undefined,
-                        ...tasksAfterIndex.reduce((acc, curr) => {
-                            const currTask = tasks[curr]
-
-                            return {
-                                ...acc,
-                                [curr]: {
-                                    ...currTask,
-
-                                    index: currTask.index - 1,
-                                }
+                    tasks: newIndex !== index ? reduce(tasks, (result, value, key) => {
+                        return {
+                            ...result,
+                            [key]: {
+                                ...value,
+                                index: findIndex(updatedTaskOrder, tskId => tskId === key),
                             }
-                        }, {})
-                    },
-                    taskOrder: removeAtIndex(taskOrder, index),
+                        }
+                    }, {}) : tasks,
+
+                    taskOrder: updatedTaskOrder,
                 }
             }
 
-            const updatedTaskOrder = moveAtIndexArr(taskOrder, index, newIndex)
+
+
+            const updatedTaskOrder = [...taskOrder]
+            updatedTaskOrder.splice(newIndex, 0, id)
 
             return {
-                tasks: newIndex !== index ? reduce(tasks, (result, value, key) => {
+                tasks: reduce(tasks, (result, value, key) => {
                     return {
                         ...result,
                         [key]: {
@@ -100,7 +97,12 @@ export default function(state = initial, action, sectId) {
                             index: findIndex(updatedTaskOrder, tskId => tskId === key),
                         }
                     }
-                }, {}) : tasks,
+                }, {
+                    [id]: {
+                        ...taskToMv,
+                        index: findIndex(updatedTaskOrder, tskId => tskId === id),
+                    },
+                }),
 
                 taskOrder: updatedTaskOrder,
             }
