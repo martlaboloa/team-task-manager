@@ -101,7 +101,7 @@ export default function(state = initial, action) {
                     }
                 }, {}) : sections,
 
-                sectionOrder: updatedSectionOrder
+                sectionOrder: updatedSectionOrder,
             }
         }
         case actions.section.ADD_TASK:
@@ -120,7 +120,7 @@ export default function(state = initial, action) {
                     ...sections,
                     [sectionId]: {
                         ...section,
-                        data: sectionReducer(data, action),
+                        data: sectionReducer(data, action, sectionId), // hack needs to be changed
                     },
                 },
             }
