@@ -13,7 +13,7 @@ class Board extends Component {
 
         return (
             <div className="board-container" >
-                <MoveProgrammatically />
+                {/*<MoveProgrammatically />*/}
 
                 <Sections sectionOrder={sectionOrder} />
 

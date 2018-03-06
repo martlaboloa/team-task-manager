@@ -7,11 +7,13 @@ import './styles.css'
 
 class TeamTaskManager extends React.PureComponent {
     render() {
-        return (
-            <Paper className="board-wrapper" zDepth={2}>
+        return [
+            <div key="div" className="header" />,
+            <Paper key="paper" className="board-wrapper" zDepth={2}>
                 <Board />
             </Paper>
-        )
+        ]
+
     }
 }
 
