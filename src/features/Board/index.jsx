@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import MoveProgrammatically from './MoveProgrammatically'
 import { getSectionOrder } from '../store/selectors'
 import Section, { CreateNewSection } from '../Section'
-import MoveProgrammatically from './MoveProgrammatically'
 
 
 const Sections = ({ sectionOrder }) => sectionOrder.map(id => <Section key={id} id={id} />)

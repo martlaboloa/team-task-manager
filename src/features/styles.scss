@@ -15,6 +15,11 @@ body {
     height: 100%;
 }
 
+.ttm-container {
+    height: 100%;
+    width: 100%;
+}
+
 .header {
     height: 50px;
     background: #2c95f3;
@@ -25,15 +30,31 @@ body {
     z-index: 10;
 }
 
+.drawer-container {
+    position: relative !important;
+}
+
+.drawer {
+    height: 100% !important;
+}
+
+.content-container {
+    width: 100%;
+    height: calc(100%);
+    margin-top: 50px;
+    overflow: auto;
+    background-color: #fafafa;
+    display: flex;
+}
+
 .board-wrapper {
     width: calc(100% - 150px);
     height: calc(100% - 150px);
     margin: auto;
     overflow: auto;
     white-space: nowrap;
-    position: relative;
-    top: 80px;
     background-color: #fafafa;
+    margin: 0px 20px 0px 20px;
 }
 
 .board-container {
