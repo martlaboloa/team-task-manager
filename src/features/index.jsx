@@ -1,7 +1,7 @@
 import React from 'react'
 import Drawer from 'material-ui/Drawer'
 import AppBar from 'material-ui/AppBar'
-import {Tabs, Tab} from 'material-ui/Tabs';
+import { Tabs, Tab } from 'material-ui/Tabs';
 import Board from './Board'
 
 class TeamTaskManager extends React.PureComponent {

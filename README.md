@@ -1,9 +1,9 @@
-team task manager:
+STEPS WHEN STARTING FROM SCRATCH:
 
-clone repo
+1) clone repository
 
-npm install
+2) npm install
 
-npm start
+3) npm start
 
-(or yarn)
+(you can use yarn instead of npm if it's preferable)
