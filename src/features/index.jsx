@@ -10,24 +10,25 @@ class TeamTaskManager extends React.PureComponent {
     render() {
         return (
             <div className="ttm-container">
-                {/*<div className="app-bar-container">*/}
-                    {/*<AppBar*/}
-                        {/*title="Title"*/}
-                        {/*iconClassNameRight="muidocs-icon-navigation-expand-more"*/}
-                    {/*>*/}
-                        {/*<TextField*/}
-                            {/*hintText="Search"*/}
-                        {/*/>*/}
-                    {/*</AppBar>*/}
-                {/*</div>*/}
+                <AppBar
+                    className="app-bar-container"
+                    title="Title"
+                    iconClassNameRight="muidocs-icon-navigation-expand-more"
+                >
+                    <TextField
+                        hintText="Search"
+                    />
+                </AppBar>
 
                 <Tabs
                     className="tabs-container"
                     contentContainerClassName="tabs-content-container"
 
                     tabTemplateStyle={{ height: '100%' }}
+
+                    tabItemContainerStyle={{ boxShadow: '0 0 5px silver' }}
                 >
-                    <Tab label="TASKS" >
+                    <Tab className="tab-container" label="TASKS" >
                         <div className="tasks-tab-container" >
                             <div
                                 className="board-wrapper"
@@ -161,7 +162,7 @@ class TeamTaskManager extends React.PureComponent {
                             </div>
                         </div>
                     </Tab>
-                    <Tab label="ACTIVITY" >
+                    <Tab className="tab-container" label="ACTIVITY" >
                         activity1
                         activity2
                         activity3

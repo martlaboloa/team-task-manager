@@ -1,11 +1,11 @@
-$assignment-theme-color: #ec9f00;
-$project-theme-color: #2c95f3;
-$board-background-color: #fafafa;
-
 @mixin full-dimension {
     width: 100%;
     height: 100%;
 }
+
+$assignment-theme-color: #ec9f00;
+$project-theme-color: #2c95f3;
+$board-background-color: #fafafa;
 
 html {
     @include full-dimension;
@@ -30,7 +30,13 @@ body {
 }
 
 .tabs-container {
-    @include full-dimension;
+    width: 100%;
+    height: calc(100% - 64px);
+}
+
+.tab-container {
+    background-color: white !important;
+    color: #a3a3a3 !important;
 }
 
 .tabs-content-container {
@@ -43,11 +49,12 @@ body {
     overflow: auto;
 }
 
-.board-wrapper {
-}
-
 .drawer-container {
     opacity: 0.5;
+}
+
+.board-wrapper {
+    @include full-dimension;
 }
 
 /*
