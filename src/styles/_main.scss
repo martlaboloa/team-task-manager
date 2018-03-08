@@ -1,20 +1,24 @@
+$assignment-theme-color: #ec9f00;
+$project-theme-color: #2c95f3;
 $board-background-color: #fafafa;
 
 html {
-    height: 100%
+    width: 100%;
+    height: 100%;
+    overflow: auto;
 }
 
 body {
-    margin: 0px 0px;
-    background-color: $board-background-color;
     height: 100%;
     width: 100%;
     overflow: auto;
+    margin: 0px 0px;
 }
 
 #root {
     width: 100%;
     height: 100%;
+    overflow: auto;
 }
 
 .ttm-container {
@@ -22,10 +26,21 @@ body {
     width: 100%;
 }
 
+.app-bar-container {
+
+}
+
+.tabs-container {
+
+}
+
+.drawer-container {
+
+}
+
+/*
 .header {
     height: 50px;
-    background: #2c95f3;
-    box-shadow: 0px 8px 12px 1px rgba(0, 0, 0, .2);
     position:  fixed;
     top: 0px;
     width: 100%;
@@ -40,7 +55,7 @@ body {
     height: 100% !important;
 }
 
-.content-container {
+.tasks-tab-container {
     width: 100%;
     height: calc(100%);
     margin-top: 50px;
@@ -48,7 +63,9 @@ body {
     background-color: $board-background-color;
     display: flex;
 }
+*/
 
+/*
 .board-wrapper {
     width: calc(100% - 150px);
     height: calc(100% - 150px);
@@ -93,10 +110,15 @@ body {
     }
 }
 
-.task-container {
-    margin: 5px 15px;
-    height: 60px;
-    overflow: hidden;
+.create-new-section-btn {
+    width: 280px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: inline-block;
+    height: calc(100% - 24px);
+    position: relative;
+    overflow: auto;
+    white-space: nowrap;
 }
 
 .section-header {
@@ -113,13 +135,9 @@ body {
     }
 }
 
-.create-new-section-btn {
-    width: 280px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    display: inline-block;
-    height: calc(100% - 24px);
-    position: relative;
-    overflow: auto;
-    white-space: nowrap;
+.task-container {
+    margin: 5px 15px;
+    height: 60px;
+    overflow: hidden;
 }
+*/
