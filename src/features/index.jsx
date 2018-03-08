@@ -29,9 +29,21 @@ class TeamTaskManager extends React.PureComponent {
                         className="tabs-container"
                         contentContainerClassName="tabs-content-container"
 
-                        tabItemContainerStyle={{ boxShadow: '0 0 5px silver', color: 'magenta' }}
+                        tabItemContainerStyle={{
+                            boxShadow: '0 0 5px silver',
+                            color: 'magenta',
+                            position: 'fixed',
+                            left: '0px',
+                            paddingLeft: '256px',
+                            backgroundColor: 'white',
+                        }}
 
                         tabTemplateStyle={{ height: '100%' }}
+
+                        inkBarStyle={{
+                            color: 'brown',
+                            marginTop: '46px',
+                        }}
                     >
                         <Tab className="tab-container" label="TASKS" >
                             <div className="tasks-tab-container" >
