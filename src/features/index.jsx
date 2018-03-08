@@ -1,11 +1,8 @@
 import React from 'react'
-import { DragDropContext } from 'react-dnd'
-import HTML5Backend from 'react-dnd-html5-backend'
 import Drawer from 'material-ui/Drawer'
 import AppBar from 'material-ui/AppBar'
 import {Tabs, Tab} from 'material-ui/Tabs';
 import Board from './Board'
-import './styles.css'
 
 class TeamTaskManager extends React.PureComponent {
     render() {
@@ -18,13 +15,13 @@ class TeamTaskManager extends React.PureComponent {
 
                 <Tabs>
                     <Tab label="Item One" >
-                        aaa
+                        jjj
                     </Tab>
                     <Tab label="Item Two" >
-                        bbb
+                        kkk
                     </Tab>
                     <Tab label="onActive" >
-                        ccc
+                        lll
                     </Tab>
                 </Tabs>
 
@@ -43,5 +40,5 @@ class TeamTaskManager extends React.PureComponent {
     }
 }
 
-export default DragDropContext(HTML5Backend)(TeamTaskManager)
+export default TeamTaskManager
 

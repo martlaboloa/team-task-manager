@@ -21,39 +21,6 @@ export const moveAtIndexArr = (arr, index, newIndex) => {
     return arrCopy
 }
 
-// incorrect, incomplete
-// export const moveAtIndexObj = (obj, id, newIndex) => {
-//     const index = obj[id].index
-//
-//     if (index === newIndex) {
-//         return obj
-//     }
-//
-//     newIndex > index
-//
-//     return obj.reduce((result, value, key) => {
-//         let updatedIndex = value.index
-//         let indexChanged = false
-//
-//         const currIndex = value.index
-//
-//         if (currIndex >= index && currIndex <= newIndex) {
-//             updatedIndex = currIndex - 1
-//             indexChanged = true
-//         }
-//
-//
-//         return {
-//             ...result,
-//             [key]: indexChanged ? {
-//                 ...value,
-//                 index: updatedIndex,
-//             } : value
-//
-//         }
-//     }, {})
-// }
-
 export const getRandomColor = () => {
     var letters = '0123456789ABCDEF'
 
