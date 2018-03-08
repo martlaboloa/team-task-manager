@@ -1,7 +1,7 @@
 import React from 'react'
 import Drawer from 'material-ui/Drawer'
 import AppBar from 'material-ui/AppBar'
-import { Tabs, Tab } from 'material-ui/Tabs';
+import { Tabs, Tab } from 'material-ui/Tabs'
 import Board from './Board'
 
 class TeamTaskManager extends React.PureComponent {
@@ -31,8 +31,8 @@ class TeamTaskManager extends React.PureComponent {
 
                 <div className="content-container">
 
-                    <div className="board-wrapper" zDepth={2}>
-
+                    <div className="board-wrapper">
+                        board here
                     </div>
                 </div>
             </div>
