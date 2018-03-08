@@ -14,14 +14,17 @@ html {
 body {
     @include full-dimension;
     margin: 0px 0px;
+    overflow: auto;
 }
 
 #root {
     @include full-dimension;
+    overflow: auto;
 }
 
 .ttm-container {
     @include full-dimension;
+    overflow: auto;
 }
 
 .app-bar-container {
@@ -29,9 +32,15 @@ body {
     width: 100%;
 }
 
+.content-container {
+    width: 100%;
+    height: calc(100% - 112px);
+    display: flex;
+}
+
 .tabs-container {
     width: 100%;
-    height: calc(100% - 64px);
+    height: calc(100%);
 }
 
 .tab-container {
@@ -41,7 +50,7 @@ body {
 
 .tabs-content-container {
     width: 100%;
-    height: calc(100% - 48px);
+    height: calc(100%);
 }
 
 .tasks-tab-container {
@@ -50,7 +59,11 @@ body {
 }
 
 .drawer-container {
-    opacity: 0.5;
+    opacity: 0.5 !important;
+    top: 112px !important;
+    height: 100% !important;
+    position: static !important;
+    margin-top: 48px;
 }
 
 .board-wrapper {
