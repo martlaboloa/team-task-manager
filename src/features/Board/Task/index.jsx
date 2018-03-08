@@ -3,12 +3,12 @@ import { connect } from 'react-redux'
 import FlatButton from 'material-ui/FlatButton'
 import IconButton from 'material-ui/IconButton'
 import ActionDone from 'material-ui/svg-icons/action/done'
-import PaperEnhanced from '../shared/PaperEnhanced'
+import flowRight from 'lodash/flowRight'
+import { DragSource, DropTarget } from 'react-dnd'
+import PaperEnhanced from '../../shared/PaperEnhanced'
 import { getTaskIndex, getTaskName} from '../store/selectors'
 import actions from '../store/actions'
-import { DragSource, DropTarget } from "react-dnd";
-import flowRight from "lodash/flowRight";
-import { DnDItemTypes } from "../constants";
+import { DnDItemTypes } from '../constants'
 
 const taskSource = {
     beginDrag(props) {

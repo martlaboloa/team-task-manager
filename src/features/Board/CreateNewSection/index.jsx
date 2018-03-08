@@ -6,7 +6,7 @@ import TextField from 'material-ui/TextField'
 import IconButton from 'material-ui/IconButton'
 import ImageLens from 'material-ui/svg-icons/image/lens'
 import actions from '../store/actions'
-import { getRandomColor } from '../../helpers'
+import { getRandomColor } from '../../../helpers'
 
 const btnStyles = {
     height: 'calc(100% - 4px)',

@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 /*
 apply application styles
  */
-import './styles'
+import './styles/index.css'
 
 /*
 react dnd imports
@@ -23,6 +23,8 @@ import { applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import configureStore from './store/configure'
 import reducer from './store/reducer'
+import analytics from './store/middlewares/analytics'
+
 
 /*
 main react component import
@@ -34,27 +36,25 @@ configuring store
  */
 const store = configureStore(
     undefined,
-    applyMiddleware(),
+    applyMiddleware(analytics),
     reducer,
 )
 
 
+/*
+claim root as react dnd context
+
+apply material ui themes.
+required to use material ui components.
+
+main react component
+ */
 class App extends Component {
   render() {
     return (
-        /*
-        claim root as react dnd context
-         */
         <DragDropContextProvider backend={HTML5Backend}>
-            /*
-            apply material ui themes.
-            required to use material ui components.
-             */
             <MuiThemeProvider>
                 <Provider store={store}>
-                    /*
-                    main react component
-                     */
                     <TeamTaskManager />
                 </Provider>
             </MuiThemeProvider>

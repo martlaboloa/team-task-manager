@@ -1,4 +1,4 @@
-import createAction from '../../reducer/actionHelpers'
+import createAction from '../../../store/actionHelpers'
 import actions from './actionTypes'
 
 export default {

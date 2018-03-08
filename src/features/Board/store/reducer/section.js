@@ -1,5 +1,5 @@
 import actions from '../actionTypes'
-import {unsafeGUID, removeAtIndex, moveAtIndexArr } from '../../../helpers'
+import {unsafeGUID, removeAtIndex, moveAtIndexArr } from '../../../../helpers'
 import reduce from "lodash/reduce";
 import findIndex from "lodash/findIndex";
 

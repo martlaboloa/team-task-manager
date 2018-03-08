@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import PaperEnhanced from '../shared/PaperEnhanced'
 import TextField from 'material-ui/TextField'
+import PaperEnhanced from '../../shared/PaperEnhanced'
 import actions from '../store/actions'
 
 class CreateNewTask extends Component {

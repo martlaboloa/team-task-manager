@@ -1,10 +1,10 @@
-import actions from '../actionTypes'
 import find from 'lodash/find'
 import findIndex from 'lodash/findIndex'
 import reduce from 'lodash/reduce'
-import { unsafeGUID, removeAtIndex, moveAtIndexArr } from '../../../helpers'
+import { unsafeGUID, removeAtIndex, moveAtIndexArr } from '../../../../helpers'
+import createAction from '../../../../store/actionHelpers'
+import actions from '../actionTypes'
 import sectionReducer from './section'
-import createAction from "../../../reducer/actionHelpers";
 
 const initial = {
     sections: {},
