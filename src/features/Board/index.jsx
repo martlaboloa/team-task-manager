@@ -12,12 +12,14 @@ class Board extends Component {
         const { sectionOrder } = this.props
 
         return (
-            <div className="board-container" >
-                {/*<MoveProgrammatically />*/}
+            <div className="board-wrapper">
+                <div className="board-container" >
+                    {/*<MoveProgrammatically />*/}
 
-                <Sections sectionOrder={sectionOrder} />
+                    <Sections sectionOrder={sectionOrder} />
 
-                <CreateNewSection />
+                    <CreateNewSection />
+                </div>
             </div>
         )
     }

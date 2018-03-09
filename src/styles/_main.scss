@@ -50,13 +50,12 @@ body {
 }
 
 .tabs-content-container {
-    width: 100%;
-    height: calc(100%);
+    @include full-dimension;
+    overflow: auto;
 }
 
 .tasks-tab-container {
     @include full-dimension;
-    overflow: auto;
 }
 
 .drawer-container {
@@ -67,37 +66,7 @@ body {
     margin-top: 48px;
 }
 
-.board-wrapper {
-    @include full-dimension;
-}
-
-/*
-.header {
-    height: 50px;
-    top: 0px;
-    width: 100%;
-    z-index: 10;
-}
-
-.drawer-container {
-    position: relative !important;
-}
-
-.drawer {
-    height: 100% !important;
-}
-
-.tasks-tab-container {
-    width: 100%;
-    height: calc(100%);
-    margin-top: 50px;
-    overflow: auto;
-    background-color: $board-background-color;
-    display: flex;
-}
-*/
-
-/*
+// here start old css of board
 .board-wrapper {
     width: calc(100% - 150px);
     height: calc(100% - 150px);
@@ -172,4 +141,3 @@ body {
     height: 60px;
     overflow: hidden;
 }
-*/
